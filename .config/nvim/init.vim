@@ -1,16 +1,16 @@
-
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
 
 let g:airline#extensions#tabline#enabled = 1                    " Tabline.
+"let g:airline_theme = 'deus'                                    " Statusline theme.
 let g:airline_theme = 'deus'                                    " Statusline theme.
-"let g:airline_theme = 'bubblegum'                                    " Statusline theme.
 "let g:airline_theme = 'deus'                                    " Statusline theme.
 let g:airline_powerline_fonts = 1
 
@@ -25,6 +25,7 @@ set number relativenumber
 set statusline+=%F
 set nobackup
 set noswapfile
+set clipboard+=unnamedplus
 
 hi MatchParen cterm=none ctermbg=green ctermfg=blue
 

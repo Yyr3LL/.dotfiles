@@ -6,7 +6,7 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #222D31
+XTerm*background:        #000000
 XTerm*foreground:        #d8d8d8
 XTerm*pointerColor:      #1ABB9B
 XTerm*faceName:          Fixed
@@ -14,7 +14,7 @@ XTerm*faceSize:          15
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background:                      #222D31
+*background:                      #000000
 *foreground:                      #d8d8d8
 *fading:                          8
 *fadeColor:                       black
@@ -57,13 +57,7 @@ XTerm*selectToClipboard: true
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
 
-!URxvt*font: xft:-Misc-Fixed-Bold-R-Normal-:size=11
-!URxvt*font: 			xft:inconsolata:regular:pixelsize=18
-!URxvt*font: 			xft:source code pro for powerline:regular:pixelsize=18antialias=false
-URxvt.font:                       xft:Source Code Pro Semibold:size=11
-!URxvt.font:                       xft:xos4 Terminus:style=SemiBold:size=11
-!URxvt.font: 9x15
-!URxvt.font:                       xft:Hack:size=12
+URxvt.font:                       xft:Source Code Pro:size=12
 !URxvt.font:                       xft:monaco:size=15
 
 ! alternative font settings with 'terminus':
@@ -72,13 +66,12 @@ URxvt.font:                       xft:Source Code Pro Semibold:size=11
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-! URxvt.background:                 [90]#222D31
-URxvt.background:                 [80]#000000
+URxvt.background:                 [100]#060B0F
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
 URxvt*background:                 black
-URxvt*foreground:                 white
+URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
