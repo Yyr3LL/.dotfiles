@@ -253,8 +253,8 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format = <label>
-format-foreground = #000000
-format-background = #C792EA
+format-background = #33b5ac
+format-foreground = #292d3e
 format-prefix = "   "
 format-prefix-foreground = ${colors.background}
 label = "%percentage:3%%"  
@@ -449,7 +449,7 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format-background = #FFE585
+format-background = #71ebc4
 format-foreground = #292d3e
 format = <ramp> <label>
 ;format-underline = #f50a4d
@@ -542,7 +542,7 @@ content-background = #C3E88D
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #C792EA
+content-foreground = #33b5ac
 content-background = #82AAFF
 
 [module/arrow4]
@@ -550,8 +550,8 @@ content-background = #82AAFF
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #FFE585
-content-background = #C792EA
+content-foreground = #71ebc4
+content-background = #33b5ac
 
 [module/arrow5]
 ; grey to Blue
@@ -559,7 +559,7 @@ type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = #2b687a
-content-background = #FFE585
+content-background = #71ebc4
 
 [module/arrow7]
 ; grey to Blue
