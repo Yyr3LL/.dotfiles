@@ -10,8 +10,9 @@ export ZSH="/home/yy/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="random"
 #ZSH_THEME="arrow"
+ZSH_THEME="gallois"
 #ZSH_THEME="agnoster"
-ZSH_THEME="refined"
+#ZSH_THEME="refined"
 #ZSH_THEME="af-magic"
 
 # Set list of themes to pick from when loading at random

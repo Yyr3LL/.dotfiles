@@ -1,10 +1,10 @@
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'ervandew/supertab'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'ervandew/supertab'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'relastle/bluewery.vim'
 " syntax
@@ -55,6 +55,15 @@ let g:airline_symbols.linenr = ''
 let g:chromatica#libclang_path='/usr/lib/libclang.so'
 let g:chromatica#enable_at_startup=1
 "
+
+
+let g:coc_global_extensions = [
+  \ 'coc-pairs',
+  \ 'coc-json', 
+  \ 'coc-python', 
+  \ ]
+
+
 set splitbelow
 set splitright
 colorscheme ron
@@ -95,3 +104,4 @@ nnoremap <CR> o<Esc>
 nnoremap <esc><esc> :silent! nohls<cr>
 inoremap <C-v> <Esc>pi<Right>
 
+inoremap <silent><expr> <c-space> coc#refresh()
