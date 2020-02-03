@@ -36,15 +36,6 @@ font pango:DejaVu Sans Mono 8
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec urxvt
-#bindsym $mod+Return exec xfce4-terminal
-#bindsym $mod+mod1+Return exec urxvt; grab-focus; floating enable
-#bindsym $mod+Return exec alacritty
-#bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+Shift+Return exec urxvt -e lf
-#bindsym $mod+Shift+Return exec alacritty -e ranger
-#bindsym $mod+Shift+Return exec xfce4-terminal -e ranger
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -52,7 +43,7 @@ bindsym $mod+Shift+q kill
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_run
 #bindsym mod1+space exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-bindsym mod1+space exec --no-startup-id dmenu_run
+#bindsym mod1+space exec --no-startup-id dmenu_run
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -72,39 +63,39 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-# Start Applications
+# start application
+
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec urxvt -e ranger
+
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym Ctrl+mod1+Delete exec urxvt -e htop
+
 bindsym $mod+F4 exec /home/yy/scripts/clip-test.sh
+bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+F6 exec /home/yy/scripts/xrandr-output.sh
+
 bindsym $mod+mod1+p exec killall -q polybar && polybar example
+bindsym $mod+g exec galculator
 bindsym $mod+Shift+o exec polybar example
 bindsym $mod+Shift+n exec pcmanfm
-bindsym $mod+g exec galculator
 bindsym $mod+Shift+a exec arandr
-#bindsym $mod+l exec ~/lock.sh
 bindsym $mod+Shift+z exec firefox
-#bindsym $mod+Shift+h exec google-chrome-stable
 bindsym $mod+Shift+c exec code
 bindsym $mod+Shift+p exec pycharm
 bindsym $mod+Shift+t exec telegram-desktop
-# bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
 #bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-#bindsym mod1+space exec --no-startup-id rofi -show run -font "Noto Sans 13"
+bindsym mod1+space exec --no-startup-id rofi -show run -font "Noto Sans 13"
 bindsym Print exec flameshot full -c
 bindsym $mod+p --release exec flameshot gui 
-#bindsym $mod+Shift+p --release exec --no-startup-id i3-scrot -s
-#bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
 bindsym $mod+F2 --release exec --no-startup-id subl3
 
-# pass manipulations
 
+# pass manipulations
 bindsym $mod+F5 --release exec --no-startup-id passmenu
 
 # changing layout
@@ -311,7 +302,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+x mode "$mode_system"
 #set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (u) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id blurlock mode "default"
     bindsym e exec --no-startup-id systemctl exit, mode "default"
@@ -367,30 +358,28 @@ mode "resize" {
 # Lock screen
 bindsym $mod+l exec --no-startup-id blurlock
 
-# Autostart applications
-#exec --no-startup-id /home/yy/.config/polybar/launchr.sh
+# startup applications
+
+# wallpaper
 exec --no-startup-id feh --bg-fill ~/Downloads/Pictures/photo_2019-11-29_12-57-22.jpg
+
+# status bar (polybar)
 exec --no-startup-id polybar example
-#exec --no-startup-id variety
+
+# terminal blur
 exec_always --no-startup-id compton --blur-method kawase --backend glx --blur-background --blur-strength 10
+
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
-#exec --no-startup-id conky -c ~/.config/i3/system-overview
+
+# xset settings 
 exec --no-startup-id xset m 22/10 0
-#exec --no-startup-id compton
+exec --no-startup-id xset r rate 250 45
+
 exec --no-startup-id nm-applet
 exec --no-startup-id xrdb .Xresources
 exec --no-startup-id flameshot
-exec --no-startup-id xset r rate 250 45
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
 exec --no-startup-id firefox
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-#exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
+
 exec --no-startup-id xautolock -time 30 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -426,35 +415,6 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
-#bar {
-#	i3bar_command i3bar
-	#status_command i3status
-#	position bottom
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
-#	bindsym button4 nop
-#	bindsym button5 nop
-#   font xft:URWGothic-Book 11
-#	strip_workspace_numbers yes
-
- #   colors {
-  #      background #222D31
-   #     statusline #F9FAF9
-    #    separator  #454947
-
-#                      border  backgr. text
-#        focused_workspace  #F9FAF9 #16a085 #292F34
- #       active_workspace   #595B5B #353836 #FDF6E3
-  #      inactive_workspace #595B5B #222D31 #EEE8D5
-   #     binding_mode       #16a085 #2C2C2C #F9FAF9
-    #    urgent_workspace   #16a085 #FDF6E3 #E5201D
-    #}
-#}
-
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
@@ -473,19 +433,11 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-#gaps inner 8
+gaps inner 10 
 #gaps outer 0
 
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
