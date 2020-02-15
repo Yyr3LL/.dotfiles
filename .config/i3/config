@@ -361,7 +361,9 @@ bindsym $mod+l exec --no-startup-id blurlock
 # startup applications
 
 # wallpaper
-exec --no-startup-id feh --bg-fill ~/Downloads/Pictures/photo_2019-11-29_12-57-22.jpg
+exec --no-startup-id feh --bg-fill ~/Downloads/Shameimaru.Aya.full.2831262.png
+
+
 
 # status bar (polybar)
 exec --no-startup-id polybar example
@@ -433,7 +435,7 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 10 
+#gaps inner 10 
 #gaps outer 0
 
 smart_gaps on

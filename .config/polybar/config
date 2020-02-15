@@ -73,12 +73,12 @@ font-2 = xos4 Terminus:pixelsize=18;3
 ;font-3 = siji:pixelsize=10;5
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
 ;font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
-font-4 = FontAwesome5:style=Regular:size=11;3
+font-4 = FontAwesome5:style=Regular:size=11;2
 
 
 modules-left = i3
 modules-center = mpd
-modules-right = xbacklight alsa arrow0 xkeyboard arrow1 filesystem arrow2 memory arrow3 cpu arrow4 temperature arrow5 battery arrow7 date arrow8 time arrow9 powermenu
+modules-right = xbacklight alsa hollowblock xkeyboard hollowblock filesystem hollowblock memory arrow3 cpu arrow4 hollowblock temperature hollowblock hollowblock battery hollowblock hollowblock  date hollowblock arrow8 time arrow9 hollowblock powermenu
 
 separator = 
 
@@ -120,9 +120,9 @@ blacklist-0 = num lock
 ;content-foreground = #C3E88D
 ;content-background = #292d3e
 
-format-background = #f5b0e4
-format-foreground = #000000
-format-prefix = "%{F#292d3e}  %{F-} "
+format-background = #060B0F
+format-foreground = #eeeeee
+format-prefix = "%{F#eeeeee}  %{F-} "
 ;format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-foreground = #eeeeee
 ;format-prefix-underline = ${colors.secondary}
@@ -143,8 +143,8 @@ interval = 25
 ;%{F#0a81f5}%mountpoint%%{F-}:
 
 mount-0 = /
-format-mounted-background = #C3E88D
-format-mounted-prefix = " %{F#292d3e} "
+format-mounted-background = #060B0F
+format-mounted-prefix = " %{F#eeeeee} "
 label-mounted =  %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -253,7 +253,7 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format = <label>
-format-background = #33b5ac
+format-background = #91efff
 format-foreground = #292d3e
 format-prefix = "   "
 format-prefix-foreground = ${colors.background}
@@ -263,10 +263,10 @@ label = "%percentage:3%%"
 type = internal/memory
 interval = 2
 format = " <label> "
-format-prefix = "   "
+format-prefix = " %{F#eeeeee} "
 format-prefix-foreground = #000000
-format-foreground = #000000
-format-background = #82AAFF
+format-foreground = #eeeeee
+format-background = #060B0F
 
 label = " %percentage_used%% "
 
@@ -319,9 +319,9 @@ time = " %{T5}%H:%M %{T-} "
 time-alt = %H:%M:%S
 
 format-prefix = " %{T3}  %{T-}"
-format-background = #33b5ac
+format-background = #91efff
 format-foreground = #292d3e
-format-underline = #33b5ac
+format-underline = ${self.format-background}
 
 label = " %time% "
 
@@ -336,9 +336,9 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-background = #71ebc4
-format-foreground = #292d3e
-format-underline = #71ebc4
+format-background = #060B0F
+format-foreground = #91efff
+format-underline = ${self.format-background}
 
 label = " %date%"
 
@@ -407,25 +407,26 @@ full-at = 98
 content-font = 4
 format-full-prefix = "  "
 ;format-prefix = "%{F#292d3e} "
-format-background = #286275
+format-background = #060B0F
 format-foreground = #eeeeee
 
 format-charging-prefix = "  "
 format-charging = " %{F#292d3e}<animation-charging> <label-charging> "
-format-charging-background = #286275
-format-charging-foreground #ffffff
-format-charging-underline = #286275
+format-charging-background = ${self.format-background}
+format-charging-foreground ${self.format-foreground}
+format-charging-underline = ${self.format-background}
 
 format-discharging-prefix = "  "
 format-discharging = " %{F#292d3e} <animation-discharging> <label-discharging>"
-format-discharging-background = #2b687a
-format-discharging-foreground = #ffffff
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-background = ${self.format-background}
+format-discharging-foreground = ${self.format-foreground}
+format-discharging-underline = ${self.format-background}
 
 ;format-full-prefix = "%{F#292d3e} "
-format-full-foreground = #ffffff
-format-full-background = #286275
-format-full-underline = ${self.format-charging-underline}
+format-full-foreground = ${self.format-foreground}
+format-full-background = ${self.format-background}
+#410694
+format-full-underline = ${self.format-background}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -449,8 +450,8 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format-background = #71ebc4
-format-foreground = #292d3e
+format-background = #060B0F
+format-foreground = #eeeeee
 format = <ramp> <label>
 ;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
@@ -526,7 +527,7 @@ content-background = #060B0F
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #C3E88D
+content-foreground = #91efff
 content-background = #f5b0e4
 
 [module/arrow2]
@@ -534,48 +535,48 @@ content-background = #f5b0e4
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #82AAFF
-content-background = #C3E88D
+content-foreground = #655dd9
+content-background = #91efff
 
 [module/arrow3]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #33b5ac
-content-background = #82AAFF
+content-foreground = #91efff
+content-background = #060B0F
 
 [module/arrow4]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #71ebc4
-content-background = #33b5ac
+content-foreground = #060B0F
+content-background = #91efff
 
 [module/arrow5]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #2b687a
-content-background = #71ebc4
+content-foreground = #73344C
+content-background = #DBAAA4
 
 [module/arrow7]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #71ebc4
-content-background = #2b687a
+content-foreground = #f7b0e7
+content-background = #73344C
 
 [module/arrow8]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #33b5ac
-content-background = #71ebc4
+content-foreground = #91efff
+content-background = #060B0F
 
 [module/arrow9]
 ; grey to Blue
@@ -583,7 +584,7 @@ type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = #060B0F
-content-background = #33b5ac
+content-background = #91efff
 
 
 [module/arrow6]
@@ -601,6 +602,13 @@ content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = #1D2330
 content-background = #F07178
+
+[module/hollowblock]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = #1D2330
+content-background = #060B0F
 
 [module/arrowtimeright]
 ; grey to Blue
