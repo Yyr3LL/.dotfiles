@@ -105,3 +105,14 @@ nnoremap <esc><esc> :silent! nohls<cr>
 inoremap <C-v> <Esc>pi<Right>
 
 inoremap <silent><expr> <c-space> coc#refresh()
+
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+autocmd FileType tex map <buffer> <F8> :w<CR>:exec '!pdflatex' shellescape(@%, 1)<CR>
+autocmd FileType tex map <buffer> <F8> :w<CR>:exec '!pdflatex' shellescape(@%, 1)<CR>
+
+cmap W w
+cmap WQ wq
+cmap wQ wq
+cmap Q q
