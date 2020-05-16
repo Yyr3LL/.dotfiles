@@ -60,12 +60,19 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec amixer set Master 10%+
+bindsym XF86AudioLowerVolume exec amixer set Master 10%-
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioMicMute exec python3 ~/.scripts/mute-micro.py
+
 
 # start application
 
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec urxvt -e ranger
 
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -88,7 +95,7 @@ bindsym $mod+Shift+F3 exec gksu pcmanfm
 #bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym mod1+space exec --no-startup-id rofi -show run -font "Noto Sans 13"
+bindsym mod1+space exec --no-startup-id dmenu_run
 bindsym Print exec flameshot full -c
 bindsym $mod+p --release exec flameshot gui 
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
