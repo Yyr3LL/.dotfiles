@@ -11,12 +11,24 @@ out = subprocess.Popen(['amixer', 'sget', 'Mic Mute-LED Mode'],
 stdout, stderr = out.communicate()
 out = str(stdout.decode("utf-8"))
 
-ind = out.find('Item0:')
+indexes = []
 
-exit_code = 0
+indexes.append(out.find('Item0:'))
+indexes.append(indexes[0] + out[indexes[0]:].find('\''))
+indexes.append(indexes[0] + indexes[1] + out[indexes[1]:].find('\''))
 
-if "Off" in out[ind:ind+16]:
-    exit_code = os.system('amixer sset "Mic Mute-LED Mode" "On"')
-elif "On" in out[ind:ind+16]:
-    exit_code = os.system('amixer sset "Mic Mute-LED Mode" "Off"')
+start = int(indexes[1])
+end = int(indexes[2])
 
+res = out[start:end+1]
+
+exit = 0
+
+if "Off" in res:
+    exit = os.system('amixer sset "Mic Mute-LED Mode" "On"')
+elif "On" in res:
+    exit = os.system('amixer sset "Mic Mute-LED Mode" "Off"')
+else:
+    exit = os.system('amixer sset "Mic Mute-LED Mode" "On"')
+
+print(exit)
