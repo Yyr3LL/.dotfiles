@@ -73,10 +73,10 @@ bindsym XF86AudioMicMute exec python3 ~/.scripts/mute-micro.py
 # start application
 
 bindsym $mod+Return exec st
-bindsym $mod+Shift+Return exec urxvt -e ranger
+bindsym $mod+Shift+Return exec st -e ranger
 
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym Ctrl+mod1+Delete exec urxvt -e htop
+bindsym $mod+Ctrl+b exec st -e 'bmenu'
+bindsym Ctrl+mod1+Delete exec st -e htop
 
 bindsym $mod+F4 exec /home/yy/scripts/clip-test.sh
 bindsym $mod+F5 exec terminal -e 'mocp'
@@ -380,9 +380,15 @@ exec_always --no-startup-id compton --blur-method kawase --backend glx --blur-ba
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# xset settings 
+# x settings 
 exec --no-startup-id xset m 22/10 0
 exec --no-startup-id xset r rate 250 45
+
+# touchpad settings
+exec --no-startup-id xinput set-prop 11 320 0 0
+exec --no-startup-id xinput set-prop 11 304 1 
+exec --no-startup-id xinput set-prop 11 312 1
+exec --no-startup-id xinput set-prop 11 322 1
 
 exec --no-startup-id nm-applet
 exec --no-startup-id xrdb .Xresources
