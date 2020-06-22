@@ -35,7 +35,7 @@ alert = #bd2c40
 
 [bar/example]
 label-mounted-margin=0
-monitor = ${env:MONITOR:LVDS1}
+monitor = ${env:MONITOR:eDP-1}
 ;monitor = ${env:MONITOR:DVI-I-0}
 width = 100%
 height = 16
@@ -78,7 +78,7 @@ font-4 = FontAwesome5:style=Regular:size=11;2
 
 modules-left = i3
 modules-center = mpd
-modules-right = xbacklight alsa hollowblock xkeyboard hollowblock filesystem hollowblock memory arrow3 cpu arrow4 hollowblock temperature hollowblock hollowblock battery hollowblock hollowblock  date hollowblock arrow8 time arrow9 hollowblock powermenu
+modules-right = alsa hollowblock xkeyboard hollowblock filesystem hollowblock memory arrow3 cpu arrow4 hollowblock temperature hollowblock hollowblock f_battery hollowblock s_battery hollowblock hollowblock  date hollowblock arrow8 time arrow9 hollowblock powermenu
 
 separator = 
 
@@ -399,7 +399,7 @@ bar-volume-empty = -
 bar-volume-empty-font = 4
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/battery]
+[module/f_battery]
 type = internal/battery
 battery = BAT0
 adapter = ACAD
@@ -413,7 +413,7 @@ format-foreground = #eeeeee
 format-charging-prefix = "  "
 format-charging = " %{F#292d3e}<animation-charging> <label-charging> "
 format-charging-background = ${self.format-background}
-format-charging-foreground ${self.format-foreground}
+format-charging-foreground = ${self.format-foreground}
 format-charging-underline = ${self.format-background}
 
 format-discharging-prefix = "  "
@@ -443,7 +443,53 @@ animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = #eeeeee
-animation;discharging-framerate = 750
+animation-discharging-framerate = 750
+
+[module/s_battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 98
+content-font = 4
+format-full-prefix = "  "
+;format-prefix = "%{F#292d3e} "
+format-background = #060B0F
+format-foreground = #eeeeee
+
+format-charging-prefix = "  "
+format-charging = " %{F#292d3e}<animation-charging> <label-charging> "
+format-charging-background = ${self.format-background}
+format-charging-foreground = ${self.format-foreground}
+format-charging-underline = ${self.format-background}
+
+format-discharging-prefix = "  "
+format-discharging = " %{F#292d3e} <animation-discharging> <label-discharging>"
+format-discharging-background = ${self.format-background}
+format-discharging-foreground = ${self.format-foreground}
+format-discharging-underline = ${self.format-background}
+
+;format-full-prefix = "%{F#292d3e} "
+format-full-foreground = ${self.format-foreground}
+format-full-background = ${self.format-background}
+#410694
+format-full-underline = ${self.format-background}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = #292d3e
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = #292d3e
+
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = #eeeeee
+animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature

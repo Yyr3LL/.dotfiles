@@ -126,6 +126,23 @@ alias xres="xrdb .Xresources"
 alias morphine="/home/yy/Downloads/factorio/bin/x64/factorio"
 alias dot-git="git --git-dir=/home/yy/.dotfiles/.git --work-tree=/home/yy"
 
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push origin"
+alias gch="git checkout"
+alias gpull="git pull origin"
+alias gf="git fetch"
+
+alias fan1="echo level 1 | sudo tee /proc/acpi/ibm/fan"
+alias fan0="echo level 0 | sudo tee /proc/acpi/ibm/fan"
+alias fana="echo level auto | sudo tee /proc/acpi/ibm/fan"
+
+alias key-names=xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+
+alias blu-con='bluetoothctl power on && bluetoothctl connect 14:60:CB:F0:0A:BD'
+alias blu-dis='bluetoothctl power off'
+
 
 bindkey -v
 export KEYTIMEOUT=1

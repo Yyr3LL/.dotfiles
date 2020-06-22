@@ -13,7 +13,7 @@ new_window pixel 1
 new_float normal
 
 #xrandr settings
-exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
+exec --no-startup-id xrandr --output HDMI-2 --above eDP-1 --auto
 
 # Hide borders
 hide_edge_borders none
@@ -78,9 +78,10 @@ bindsym $mod+Shift+Return exec st -e ranger
 bindsym $mod+Ctrl+b exec st -e 'bmenu'
 bindsym Ctrl+mod1+Delete exec st -e htop
 
-bindsym $mod+F4 exec /home/yy/scripts/clip-test.sh
+bindsym $mod+F4 exec /home/yy/.scripts/clip-test.sh
 bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+F6 exec /home/yy/scripts/xrandr-output.sh
+bindsym $mod+F6 exec /home/yy/.scripts/xrandr-output.sh
+bindsym $mod+F7 exec /home/yy/.scripts/audio-output.sh
 
 bindsym $mod+mod1+p exec killall -q polybar && polybar example
 bindsym $mod+g exec galculator
@@ -183,8 +184,8 @@ bindsym $mod+Ctrl+Left workspace prev
 
 # monitors
 
-set $firstMonitor LVDS1
-set $secondMonitor HDMI1
+set $firstMonitor eDP-1
+set $secondMonitor HDMI-2
 
 set $ws1 1
 set $ws2 2
@@ -363,7 +364,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+l exec --no-startup-id blurlock
+bindsym $mod+l exec --no-startup-id betterlockscreen -l
 
 # startup applications
 
@@ -385,10 +386,7 @@ exec --no-startup-id xset m 22/10 0
 exec --no-startup-id xset r rate 250 45
 
 # touchpad settings
-exec --no-startup-id xinput set-prop 11 320 0 0
-exec --no-startup-id xinput set-prop 11 304 1 
-exec --no-startup-id xinput set-prop 11 312 1
-exec --no-startup-id xinput set-prop 11 322 1
+exec --no-startup-id python3 ~/.scripts/touchpad-settings.py
 
 exec --no-startup-id nm-applet
 exec --no-startup-id xrdb .Xresources
